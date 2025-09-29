@@ -1,0 +1,161 @@
+:root {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "PingFang TC", "Helvetica Neue", Arial;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fb;
+    color: #222;
+}
+
+.container {
+    height: 95vh;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(20, 30, 50, 0.08);
+    overflow: hidden;
+}
+
+header {
+    height: 3vh;
+    padding: 18px 22px;
+    border-bottom: 1px solid #eef2f7;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px
+}
+
+main {
+    height: 86vh;
+    display: flex;
+    gap: 20px;
+    padding: 18px;
+}
+
+/* 左側：表單 */
+.panel {
+    flex: 0 0 220px;
+    padding: 10px;
+}
+
+.panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 13px;
+    color: #444
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    border: 1px solid #d9e0ea;
+    border-radius: 8px;
+    font-size: 14px
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+    margin: 10px 0;
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 0;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button.secondary {
+    background: #64748b
+}
+
+/* 右側：聊天欄位 */
+article {
+    width: 100%;
+}
+
+.chat {
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* height: 420px; */
+}
+
+.chat-log {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #eef2f7;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #fff, #fbfdff);
+    overflow: auto
+}
+
+.msg {
+    margin-bottom: 12px;
+}
+
+.meta {
+    width: 100%;
+    font-size: 12px;
+    color: #667085;
+}
+
+.bubble {
+    max-width: 80%;
+    display: inline-block;
+    margin-top: 6px;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: #eef2ff;
+    border: 1px solid #e1e8ff;
+}
+
+.chat-input {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input textarea {
+    flex: 1;
+}
+
+.note {
+    font-size: 12px;
+    color: #8b94a6;
+    margin-top: 8px;
+}
+
+.right {
+    float: right;
+    text-align: right;
+}
+
+@media (max-width:740px) {
+    main {
+        flex-direction: column;
+    }
+
+    .panel {
+        flex: unset;
+    }
+}

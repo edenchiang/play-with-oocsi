@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  
+  
+  <title>Simple Chatroom interface via OOCSI</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Simple Chatroom interface via OOCSI</h1>
+    </header>
+    <main>
+      <aside class="panel" aria-labelledby="panel-title">
+        <h2 id="panel-title" style="font-size:15px;margin:6px 0 8px">Chat Settings</h2>
+        <!-- Chatroom interface -->
+        <!-- <form action="#" method="get" novalidate> -->
+          <br />
+            <div>
+            <label for="room-name">Chatroom Name</label><br />
+            <input id="room-name" name="room" type="text" placeholder="Input chatroom name">
+          </div>
+          <br />
+          <div>
+            <label for="user-name">User name</label><br />
+            <input id="user-name" name="user" type="text" placeholder="Nickname">
+          </div>
+          <br />
+          <div class="btn-row">
+            <button id="join-chat">Join chat</button>
+            <button id="leave-chat" class="secondary">Leave chat</button>
+          </div>
+          <p class="note-login" id="note-login">sdfg</p>
+        <!-- </form> -->
+      </aside>
+
+      <section class="chat" aria-label="chat-area">
+        <div class="chat-log" id="chat-log" role="log" aria-live="polite">
+          <!-- Static conversation -->
+          <article class="msg">
+            <div class="meta">[System] • 2025-09-25 10:30</div>
+            <div class="bubble">Welcome, please enter the user name and start chatting! Enjoy :)</div>
+          </article>
+
+          <article class="msg">
+            <div class="meta">[Yaml] • 2025-09-25 10:32</div>
+            <div class="bubble">This is an example chat.</div>
+          </article>
+
+        </div>
+
+        <!-- Message sending UI -->
+        <!-- <form action="#" method="post" class="chat-input" novalidate> -->
+          <textarea name="message" placeholder="Input something to chat..." aria-label="chat-content"></textarea>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button id="send-msg">Send Message</button>
+            <button id="reset-history" class="secondary">Clean History</button>
+          </div>
+        <!-- </form> -->
+
+        <p class="note-chat">Description</p>
+      </section>
+    </main>
+  </div>
+
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/oocsi-web.js"></script>
+</body>
+</html>
