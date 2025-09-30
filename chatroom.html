@@ -7,67 +7,90 @@
   <script type="text/javascript" src="js/jquery.min.js"></script>
   
   
-  <title>Simple Chatroom interface via OOCSI</title>
+  <title>Simple Chatroom interface for OOCSI</title>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Simple Chatroom interface via OOCSI</h1>
+      <h1>Simple Chatroom interface for / with OOCSI</h1>
     </header>
     <main>
+      <!-- Chatroom interface -->
       <aside class="panel" aria-labelledby="panel-title">
         <h2 id="panel-title" style="font-size:15px;margin:6px 0 8px">Chat Settings</h2>
-        <!-- Chatroom interface -->
-        <!-- <form action="#" method="get" novalidate> -->
-          <br />
-            <div>
+        <br />
+        <div>
             <label for="room-name">Chatroom Name</label><br />
-            <input id="room-name" name="room" type="text" placeholder="Input chatroom name">
-          </div>
-          <br />
-          <div>
-            <label for="user-name">User name</label><br />
+            <input id="room-name" name="room" type="text" placeholder="Input chatroom name" value="oocsi-chat-test">
+        </div>
+        <br />
+        <div>
+            <label for="uleftser-name">User name</label><br />
             <input id="user-name" name="user" type="text" placeholder="Nickname">
-          </div>
-          <br />
-          <div class="btn-row">
+        </div>
+        <br />
+        <div class="btn-row">
             <button id="join-chat">Join chat</button>
             <button id="leave-chat" class="secondary">Leave chat</button>
-          </div>
-          <p class="note-login" id="note-login">sdfg</p>
-        <!-- </form> -->
+        </div>
+        <p class="note-login" id="note-login"></p>
       </aside>
 
       <section class="chat" aria-label="chat-area">
         <div class="chat-log" id="chat-log" role="log" aria-live="polite">
           <!-- Static conversation -->
-          <article class="msg">
-            <div class="meta">[System] • 2025-09-25 10:30</div>
-            <div class="bubble">Welcome, please enter the user name and start chatting! Enjoy :)</div>
-          </article>
-
-          <article class="msg">
-            <div class="meta">[Yaml] • 2025-09-25 10:32</div>
-            <div class="bubble">This is an example chat.</div>
-          </article>
-
         </div>
 
         <!-- Message sending UI -->
-        <!-- <form action="#" method="post" class="chat-input" novalidate> -->
           <textarea name="message" placeholder="Input something to chat..." aria-label="chat-content"></textarea>
           <div style="display:flex;flex-direction:column;gap:8px">
             <button id="send-msg">Send Message</button>
             <button id="reset-history" class="secondary">Clean History</button>
           </div>
-        <!-- </form> -->
 
-        <p class="note-chat">Description</p>
       </section>
     </main>
   </div>
+  <div class="chat-footer text-center">created by Eden Chiang @d.Search Lab of TU/e, 2025</div>
 
-  <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/oocsi-web.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script>
+    // catch submissions by pressing Enter
+    $('textarea[name=message]').keydown(function(event) {
+      if(event.which == 13) {
+        event.preventDefault();
+
+        if(loggedIn) {
+        // if logged in, send as message
+          sendMessage();	
+        } else {
+          // if not yet logged in, do a login check
+          $('#join-chat').click();
+        }	   		
+      }
+    });
+
+    $('#user-name').keydown(function(event) {
+      if(event.which == 13) {
+        event.preventDefault();
+        
+        $('#join-chat').click();  		
+      }
+    });
+
+    window.onload = (event) => {
+        let now = new Date().toLocaleString();
+        updateMessage(
+            "System",
+            "Welcome, please enter the user name and start chatting! Enjoy :)",
+            now,
+            ""
+        );
+        
+        // focus on user name field
+        $('#user-name')[0].focus();
+    };
+  </script>
 </body>
 </html>

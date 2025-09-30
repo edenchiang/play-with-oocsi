@@ -2,7 +2,7 @@ var loggedIn = false;
 var username = '';
 var roomname = '';
 var $ = jQuery;
-var oocsiWS = 'wss://oocsi.id.tue.nl/ws';
+var oocsiWS = "WEB_SOCKET_SERVER";
 
 /**
  * console.log for debug 
@@ -36,11 +36,13 @@ function readyToJoin() {
  * @param {String} msgMessage 
  * @param {String} msgTime 
  */
-function updateMessage(msgUser, msgMessage, msgTime, className) {
+function updateMessage(msgUser, msgMessage, msgTime, isMsgFromMe) {
+    let msgClass = isMsgFromMe ? " right" : "";
+    let metaClass = isMsgFromMe ? " right text-right" : "";
     // build message component
-    let logobj = $("<article></article>").addClass("msg" + className);
-    let msgmeta = $("<div></div>").addClass("meta" + className).text("===" + msgUser + " @ " + msgTime);
-    let msgbubble = $("<div></div>").addClass("bubble" + className).text(msgMessage);
+    let logobj = $("<article></article>").addClass("msg" + msgClass);
+    let msgmeta = $("<div></div>").addClass("meta" + metaClass).text(" " + msgUser + " @ " + msgTime);
+    let msgbubble = $("<div></div>").addClass("bubble" + msgClass).text(msgMessage);
         
     // construct message node
     logobj.append(msgmeta);
@@ -65,9 +67,6 @@ function sendMessage() {
             "message": message,
             "ts": now
         };
-        
-        // update message to chat window
-        updateMessage(username, message, now, " right")
 
         // send message to oocsi
         OOCSI.send(roomname, {
@@ -75,58 +74,69 @@ function sendMessage() {
             message: message,
             ts: now,
         });
+        
+        // update message to chat window
+        updateMessage(username, message, now, " right")
+        
+        // reset input field
         $("textarea[name=message]").val("");
     } else {
+        // show error message
         $("#note-login").text("Nothing to send!");
-        $("textarea[name=message]")[0].focus();
     }
+
+    // move focus on input field
+    $("textarea[name=message]")[0].focus();
 }
 
 // login and start oocsi
 function login() {
-  // create connection
-  OOCSI.connect(oocsiWS);
-//   while(!OOCSI.isConnected()) {
-//       logme("connecting...");
-//   }
+    // create connection
+    OOCSI.connect(oocsiWS);
+    loggedIn = true;
 
-    // if (OOCSI.isConnected()) {
-        loggedIn = true;
-      
-      
-        // configuration
-        username = $('#user-name').val();
-        roomname = $("#room-name").val();
-      
-        // subscribe to the channel: roomname
-        OOCSI.subscribe(roomname, function (e) {
-            updateMessage(e.data.username, e.data.message, e.data.ts, "");
-        });
-        
-        // optional logging to console
-        OOCSI.logger(function(msg) {console.log(msg)});
-        
-        let now = new Date().toLocaleString();
-        updateMessage(username, username + " has hoin the chat!", now, "");
+    // configuration
+    username = $('#user-name').val();
+    roomname = $("#room-name").val().trim().length > 0
+        ? $("#room-name").val()
+        : "oocsi-chat-test";
+    
+    // subscribe to the channel: roomname
+    OOCSI.subscribe(roomname, function (e) {
+        updateMessage(e.data.username, e.data.message, e.data.ts, "");
+    });
+    
+    // optional logging to console
+    OOCSI.logger(function(msg) {console.log(msg)});
+    
+    let now = new Date().toLocaleString();
 
-        // announce me in channel
-        OOCSI.send(roomname, {
-            "username": "System",
-            "message": username + " has joined the chat!",
-            "ts": now,
-        });
-    // }
+    // announce me in channel
+    OOCSI.send(roomname, {
+        "username": "System",
+        "message": username + " has joined the chat!",
+        "ts": now,
+    });
 
-    // setTimeout(function () {
-    // }, 200);
+    updateMessage("System", username + " has joined the chat!", now, "");
+    
+    // move focus on input field
+    $("textarea[name=message]")[0].focus();
+}
 
-
-  // test
-  // setTimeout(function() {
-  //     OOCSI.call('addition.addnineteen2', {value: 2}, 5000, function(data) {
-  //         console.log(data)
-  //     });
-  // }, 2000);
+function logout() {
+    let now = new Date().toLocaleString();
+    
+    // announce me in channel
+    OOCSI.send(roomname, {
+        username: "System",
+        message: username + " has left the chat!",
+        ts: now,
+    });
+    updateMessage("System", "You has left the chat!", now, "");
+    OOCSI.unsubscribe(roomname);
+    loggedIn = false;
+    $("#note-login").text("You're logged out!");
 }
 
 /**
@@ -146,7 +156,8 @@ $('#join-chat').click(function(event) {
             $("#user-name")[0].focus();
         }
     } else {
-        $("#note-login").text("You're logged in already");
+        $("#note-login").text("You're logged in already. Input something to send!");
+        $("textarea[name=message]")[0].focus();
     }
 });
 
@@ -159,10 +170,8 @@ $('#leave-chat').click(function(event) {
     logme("leave chat clicked!");
     
     if (loggedIn) {
-    //   event.preventDefault();
-      OOCSI.unsubscribe(roomname);
-      $("#note-login").text("You're logged out!");
-      loggedIn = false;
+        logme("ready to leave!");
+        logout();
     } else {
         $('#note-login').text("You're not logged in!");
     }
@@ -177,10 +186,10 @@ $('#send-msg').click(function(event) {
     if(loggedIn) {
         // if logged in, send as message
         sendMessage();
+        $("textarea[name=message]")[0].focus();
     } else {
         // if not yet logged in, do a login
         $("#join-chat").click();
-        // login();
     }
 });
 
@@ -191,15 +200,4 @@ $('#reset-history').click(function(event) {
     event.preventDefault();
 
     $('#chat-log').empty();
-});
-
-$.ready(function(e) {
-    // catch submissions by pressing Enter
-    // $('#user-name').keypress(function(event) {
-    
-    // catch submissions by clicking the button
-    
-    // focus on input field
-    $('#user-name')[0].focus();
-
 });
