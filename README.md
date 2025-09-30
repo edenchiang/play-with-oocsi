@@ -4,4 +4,4 @@ This is a repository for ideas working with OOCSI
 
 ### Ideas
 
-- [OOCSI Chatroom]()
+- [OOCSI Chatroom](/oocsi-chatroom/)
