@@ -15,13 +15,14 @@ A demo of controlling a servo remotely with a pot meter via Arduino Uno, OOCSI, 
 
 ### Software
 
-- Arduino IDE 2.3.4 or later, but not 2.3.5
-- Processing 4.4.8 or later version
+- [Arduino IDE](https://www.arduino.cc/en/software/) 2.3.4 or later, but not 2.3.5
+- [Processing 4.4.8](https://processing.org/) or later version
+- [OOCSI library](https://github.com/iddi/oocsi-processing)
 
 ### Configuration
 
-- Channel of OOCSI for communication
 - URL of OOCSI server
+- Channel of OOCSI for communication
 - Unique OOCSI agent name
 - **COM port name for serial communication**, this can be checked in Processing app
 
