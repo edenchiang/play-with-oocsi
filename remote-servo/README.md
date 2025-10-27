@@ -9,7 +9,7 @@ A demo of controlling a servo remotely with a pot meter via Arduino Uno, OOCSI, 
 - Arduino UNO x 2
 - Potential meter x 1
 - Servo x 1
-- Capacitor x 1, 25V 100uF
+- Capacitor x 1, 25V 100uF (optional)
 - Jumper wires x n
 - Breadboards x 2 (max)
 
