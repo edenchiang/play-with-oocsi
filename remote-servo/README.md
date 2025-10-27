@@ -1,13 +1,13 @@
 # Remote Servo Controller
 
-A demo of controlling a servo remotely with a pot meter via Arduino Uno, OOCSI, and Processing app.
+A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOCSI, and Processing app.
 
 ## Setup
 
 ### Hardware
 
 - Arduino UNO x 2
-- Potential meter x 1
+- Potentiometer x 1
 - Servo x 1
 - Capacitor x 1, 25V 100uF (optional)
 - Jumper wires x n
@@ -45,3 +45,4 @@ A demo of controlling a servo remotely with a pot meter via Arduino Uno, OOCSI, 
 - [Serial port check in Processing app](https://processing.org/reference/libraries/serial/Serial_list_.html)
 - [Writing data to serial port with Arduino UNO](https://processing.org/reference/libraries/serial/Serial_write_.html)
 - [Reading data from serial port with Arduino UNO](https://processing.org/reference/libraries/serial/Serial_readStringUntil_.html)
+- [Controlling a servo position using a potentiometer](http://www.arduino.cc/en/Tutorial/Knob)
