@@ -2,6 +2,7 @@
 
 A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOCSI, and Processing app.
 
+
 ## Setup
 
 ### Hardware
@@ -26,17 +27,84 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 - Unique OOCSI agent name
 - **COM port name for serial communication**, this can be checked in Processing app
 
+
+## How to use
+
+Choose either seperate mode or integrate mode, then follow the steps:
+
+- First, build Arduino prototype by following the tutorials in Reference, and upload the code
+- Second, replace the `OOCSI server domain name`, `OOCSI agent name`, and `channel name` in Processing apps, then run the app
+
+### I. Seperate Mode
+
+After uploading the uno-xxx files to the Arduino prototype, open the servo / potentiometer side corresponding Processing apps, both of which can be run on the same machine without issues only for exactly match of:
+
+- `port name` in Arduino prototype and Processing app, and 
+- `channel name` for communicating in the Processing apps
+
+Then the servo will move as potentiometer changes.
+
+#### Servo Side
+
+- Hardware:
+  - Arduino UNO x 1
+  - Servo x 1
+  - Capacitor x 1, 25V 100uF (optional)
+  - Jumper wires x n
+- Files
+  - Arduino prototype: `oocsi_receiver_servo`
+  - Processing app: `uno_serial-input_servo`
+  
+#### Potentiometer Side
+
+- Hardware
+  - Arduino UNO x 1
+  - Potentiometer x 1
+  - Jumper wires x n
+- Files 
+  - Arduino prototype: `oocsi_sender_potmeter`
+  - Processing app: `uno_serial-output_potmeter`
+
+### II. Integrate Mode
+
+In this mode, all the users can send messages to others, then if there is no new messages, the servo will move back to the position where the potentiometer is.
+
+- Hardware
+  - Arduino UNO x 2
+  - Potentiometer x 1
+  - Servo x 1
+  - Capacitor x 1, 25V 100uF (optional)
+  - Jumper wires x n
+  - Breadboards x 1
+- Files 
+  - Arduino prototype: `oocsi_servo_control`
+  - Processing app: `uno_serco_control`
+
+
 ## FAQ
 
 - Nothing happened to my servo?
 
-  Few things to check:
+  A. Few things to check:
 
   - First thing to check is make sure the Processing apps are communicating via the **same channel**!!
 
-  - Second, check the **COM port**, make sure the COM ports for each Arduino board is the same as linked in eash Processing app.
+  - Second, check the **`COM port`**, make sure the COM ports for each Arduino board is the same as linked in eash Processing app.
+      - In Processing app
 
-  - Third, check the type of the data as reading messages from OOCSI, in this case, it should be an int.
+      ![COM port check in Processing](../images/check-port-name-Processing.png)
+
+      - In Arduino IDE
+
+      ![COM port check in Arduino](../images/check-port-name-UNO.png)
+
+  - Third, check the type of the data as reading messages from OOCSI, in this case, it should be an integer.
+
+- What about the rest of the files: `oocsi_auto_sender`, and `UNO_Knob`?
+  
+  - `oocsi_auto_sender`: This Processing app will periodically send OOCSI messages, then user can check whether the receiver (server) side is working fine.
+  - `UNO_Knob`: This Arduino Uno example can be found on the [official tutorial](https://www.arduino.cc/en/Tutorial/Knob/) , I made some minor changes that the potentiometer value will be sent out only if it's different from the previous value.
+    
 
 ## Reference
 
