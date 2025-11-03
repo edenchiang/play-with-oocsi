@@ -20,12 +20,12 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 - [Processing 4.4.8](https://processing.org/) or later version
 - [OOCSI library](https://github.com/iddi/oocsi-processing)
 
-### Configuration
+### Required configurations 
 
-- URL of OOCSI server
-- Channel of OOCSI for communication
+- domain name of OOCSI server
+- Channels of OOCSI for communication
 - Unique OOCSI agent name
-- **COM port name for serial communication**, this can be checked in Processing app
+- Correct **COM port name for serial communication**, this can be checked in Processing app
 
 
 ## How to use
@@ -92,11 +92,11 @@ In this mode, all the users can send messages to others, then if there is no new
   - Second, check the **`COM port`**, make sure the COM ports for each Arduino board is the same as linked in eash Processing app.
       - In Processing app
 
-      ![COM port check in Processing](../images/check-port-name-Processing.png)
+      ![COM port check in Processing](images/check-port-name-Processing.png)
 
       - In Arduino IDE
 
-      ![COM port check in Arduino](../images/check-port-name-UNO.png)
+      ![COM port check in Arduino](images/check-port-name-UNO.png)
 
   - Third, check the type of the data as reading messages from OOCSI, in this case, it should be an integer.
 
