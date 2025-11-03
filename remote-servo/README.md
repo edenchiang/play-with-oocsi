@@ -5,15 +5,6 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 
 ## Setup
 
-### Hardware
-
-- Arduino UNO x 2
-- Potentiometer x 1
-- Servo x 1
-- Capacitor x 1, 25V 100uF (optional)
-- Jumper wires x n
-- Breadboards x 2 (max)
-
 ### Software
 
 - [Arduino IDE](https://www.arduino.cc/en/software/) 2.3.4 or later, but not 2.3.5
@@ -33,7 +24,7 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 Choose either seperate mode or integrate mode, then follow the steps:
 
 - First, build Arduino prototype by following the tutorials in Reference, and upload the code
-- Second, replace the `OOCSI server domain name`, `OOCSI agent name`, and `channel name` in Processing apps, then run the app
+- Second, replace the `OOCSI server domain name`, `OOCSI agent name`, and `channel name` in Processing apps, then run the apps
 
 ### I. Seperate Mode
 
@@ -48,7 +39,7 @@ Then the servo will move as potentiometer changes.
 
 - Hardware:
   - Arduino UNO x 1
-  - Servo x 1
+  - Servo x 1, model: SG90, move range: 0 - 180 degree
   - Capacitor x 1, 25V 100uF (optional)
   - Jumper wires x n
 - Files
@@ -72,7 +63,7 @@ In this mode, all the users can send messages to others, then if there is no new
 - Hardware
   - Arduino UNO x 2
   - Potentiometer x 1
-  - Servo x 1
+  - Servo x 1, model: SG90, move range: 0 - 180 degree
   - Capacitor x 1, 25V 100uF (optional)
   - Jumper wires x n
   - Breadboards x 1
