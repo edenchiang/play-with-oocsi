@@ -12,6 +12,9 @@ This is a repository for ideas or some tips of working with OOCSI
   - _#Processing_
 - [Remote Servo](/remote-servo/)
   - Control the servo with potential meter remotely in combination of Arduino and Processing
-  - _#Processing, #Arduino, #servo, #potmeter_
+  - _#Processing, #Arduino, #servo, #potentiometer_
 - [Check incoming data of OOCSI channel via its online tools](/Check_incoming_data_of_OOCSI/)
   - A convenient way to check incoming data to a channel of OOCSI
+- [COM port Checker](/COM_port_checker)
+  - List all the COM ports connected to the machine
+  - _#Processing, #COM-port, #serial_
