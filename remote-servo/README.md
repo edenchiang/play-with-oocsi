@@ -47,8 +47,8 @@ Then the servo will move as potentiometer changes.
   - Capacitor x 1, 25V 100uF (optional)
   - Jumper wires x n
 - Files
-  - Arduino prototype: `oocsi_receiver_servo`
-  - Processing app: `uno_serial-input_servo`
+  - Processing app: `oocsi_receiver_servo`
+  - Arduino prototype: `uno_serial-input_servo`
   
 #### Potentiometer Side
 
@@ -57,8 +57,8 @@ Then the servo will move as potentiometer changes.
   - Potentiometer x 1
   - Jumper wires x n
 - Files 
-  - Arduino prototype: `oocsi_sender_potmeter`
-  - Processing app: `uno_serial-output_potmeter`
+  - Processing app: `oocsi_sender_potmeter`
+  - Arduino prototype: `uno_serial-output_potmeter`
 
 ### II. Integrate Mode
 
@@ -72,8 +72,8 @@ In this mode, all the users can send messages to others, then if there is no new
   - Jumper wires x n
   - Breadboards x 1
 - Files 
-  - Arduino prototype: `oocsi_servo_control`
-  - Processing app: `uno_serco_control`
+  - Processing app: `oocsi_servo_control`
+  - Arduino prototype: `uno_serco_control`
 
 <br />
 
@@ -81,10 +81,9 @@ In this mode, all the users can send messages to others, then if there is no new
 
 - Nothing happened to my servo?
 
-  A. Few things to check:
+  Few things to check:
 
   - First thing to check is make sure the Processing apps are communicating via the **same channel**!!
-
   - Second, check the **`COM port`**, make sure the COM ports for each Arduino board is the same as linked in eash Processing app.
       - In Processing app
 
@@ -99,6 +98,7 @@ In this mode, all the users can send messages to others, then if there is no new
 - What about the rest of the files: `oocsi_auto_sender`, and `UNO_Knob`?
   
   - `oocsi_auto_sender`: This Processing app will periodically send OOCSI messages, then user can check whether the receiver (server) side is working fine.
+  
   - `UNO_Knob`: This Arduino Uno example can be found on the [official tutorial](https://www.arduino.cc/en/Tutorial/Knob/) , I made some minor changes that the potentiometer value will be sent out only if it's different from the previous value.
 
 <br />

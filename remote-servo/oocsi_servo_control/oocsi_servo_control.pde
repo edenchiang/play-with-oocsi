@@ -39,7 +39,7 @@ void setup() {
   // connect to OOCSI server running on the same machine (localhost)
   // with "receiverName" to be my channel others can send data to
   // (for more information how to run an OOCSI server refer to: https://iddi.github.io/oocsi/)
-  oocsi = new OOCSI(this, "UNIQUE_NAME_FOR_OOCSI_AGENT_####", "OOCSI_SERVER_DOMAIN_NAME");
+  oocsi = new OOCSI(this, "UNIQUE_NAME_FOR_OOCSI_AGENT", "OOCSI_SERVER_DOMAIN_NAME");
 
   // subscribe to channel "data-from-uno" and deal with the data incoming to the channel with
   // event handler of "OOCSIEventHandler". The channel name and handler name are of course
