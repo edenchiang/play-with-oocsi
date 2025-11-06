@@ -17,9 +17,9 @@ All the users who subscribe and send messages to the same channel can put their 
 
 Change the following settings in the code, and remember to keep the double quotes for strings:
 
-- Channel of OOCSI for communication: "CHANNEL-TO-COMMUNICATE"
-- URL of OOCSI server: "OOCSI-SERVER-URL"
-- Unique OOCSI agent name: "cross-agent-YOUR-LOVELY-NAME-WITH-DASH-MAYBE"
+- Channel of OOCSI for communication: **"CHANNEL-TO-COMMUNICATE"**
+- URL of OOCSI server: **"OOCSI-SERVER-URL"**
+- Unique OOCSI agent name: **"cross-agent-YOUR-LOVELY-NAME-WITH-DASH-MAYBE"**
 - RGBA values of chosen color (These are numbers!! No double quotes are required.)
 
 <br />
