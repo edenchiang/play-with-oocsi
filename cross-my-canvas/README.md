@@ -34,10 +34,10 @@ On sender side, they have only their own crosses on the canvas.
 
 On receiver side, all the crosses will overlap to each other on the canvas.
 
-#### Files
+- Files
 
-- Sender side: `mouse_press_sender`
-- Receiver side: `mouser_press_receiver`
+  - Sender side: `mouse_press_sender`
+  - Receiver side: `mouser_press_receiver`
 
 ### II. Discreate mode
 
@@ -45,9 +45,9 @@ In this mode, all users will get crosses from all the other users in their own c
 
 Everyone just have to open the Processing file and run, then the crosses will pop up on every canvas.
 
-#### File
+- File
 
-- `mouse_press_sender_receiver_sync`
+  - `mouse_press_sender_receiver_sync`
 
 <br />
 
