@@ -14,9 +14,11 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 
 ### Required configurations 
 
-- domain name of OOCSI server
-- Channels of OOCSI for communication
-- Unique OOCSI agent name
+In the example of `oocsi_servo_control.pde`,
+
+- domain name or IP of OOCSI server: **"OOCSI_SERVER_DOMAIN_NAME"**
+- Channels of OOCSI for communication: **"UNIQUE_CHANNEL_NAME_HERE"**
+- Unique OOCSI agent name: **"UNIQUE_NAME_FOR_OOCSI_AGENT"**
 - Correct **COM port name for serial communication**, this can be checked in Processing app
 
 <br />
