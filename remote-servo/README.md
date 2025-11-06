@@ -2,6 +2,7 @@
 
 A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOCSI, and Processing app.
 
+<br />
 
 ## Setup
 
@@ -18,13 +19,14 @@ A demo of controlling a servo remotely with a potentiometer via Arduino Uno, OOC
 - Unique OOCSI agent name
 - Correct **COM port name for serial communication**, this can be checked in Processing app
 
+<br />
 
 ## How to use
 
 Choose either seperate mode or integrate mode, then follow the steps:
 
-- First, build Arduino prototype by following the tutorials in Reference, and upload the code
-- Second, replace the `OOCSI server domain name`, `OOCSI agent name`, and `channel name` in Processing apps, then run the apps
+- First, build Arduino prototype by following [the tutorials]((http://www.arduino.cc/en/Tutorial/Knob)) in Reference, and upload the Arduino code according to the mode
+- Second, replace the `OOCSI server domain name`, `OOCSI agent name`, and `channel name` in Processing code, then run the code
 
 ### I. Seperate Mode
 
@@ -71,6 +73,7 @@ In this mode, all the users can send messages to others, then if there is no new
   - Arduino prototype: `oocsi_servo_control`
   - Processing app: `uno_serco_control`
 
+<br />
 
 ## FAQ
 
@@ -95,7 +98,8 @@ In this mode, all the users can send messages to others, then if there is no new
   
   - `oocsi_auto_sender`: This Processing app will periodically send OOCSI messages, then user can check whether the receiver (server) side is working fine.
   - `UNO_Knob`: This Arduino Uno example can be found on the [official tutorial](https://www.arduino.cc/en/Tutorial/Knob/) , I made some minor changes that the potentiometer value will be sent out only if it's different from the previous value.
-    
+
+<br />
 
 ## Reference
 
