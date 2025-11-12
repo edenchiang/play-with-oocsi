@@ -101,6 +101,10 @@ In this mode, all the users can send messages to others, then if there is no new
   
   - `UNO_Knob`: This Arduino Uno example can be found on the [official tutorial](https://www.arduino.cc/en/Tutorial/Knob/) , I made some minor changes that the potentiometer value will be sent out only if it's different from the previous value.
 
+  - `COM_port_checker`: This is something useful to show all the devices use COM port on a Mac machine, which should start with `/dev/cu.usbxxxxx`. Check [here](/COM_port_checker/)
+
+      ![Com port list in Mac](images/check-port-name-Mac.png)
+
 <br />
 
 ## Reference
