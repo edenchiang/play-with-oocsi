@@ -95,7 +95,7 @@ In this mode, all the users can send messages to others, then if there is no new
 
   - Third, check the type of the data as reading messages from OOCSI, in this case, it should be an integer.
 
-- What about the rest of the files: `oocsi_auto_sender`, and `UNO_Knob`?
+- What about the rest of the files: `oocsi_auto_sender`, `UNO_Knob`, and `COM_port_checker`?
   
   - `oocsi_auto_sender`: This Processing app will periodically send OOCSI messages, then user can check whether the receiver (server) side is working fine.
   
