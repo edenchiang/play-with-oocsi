@@ -94,6 +94,7 @@ In this mode, all the users can send messages to others, then if there is no new
       ![COM port check in Arduino](images/check-port-name-UNO.png)
 
   - Third, check the type of the data as reading messages from OOCSI, in this case, it should be an integer.
+  - Forth, make sure the serial monitor of Arduino IDE is off!! Otherwise, the serial port will be occupied, then the Proceesing side won't be able to get or send data through it.
 
 - What about the rest of the files: `oocsi_auto_sender`, `UNO_Knob`, and `COM_port_checker`?
   
