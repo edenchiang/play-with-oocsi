@@ -18,3 +18,7 @@ This is a repository for ideas or some tips of working with OOCSI
 - [COM port Checker](/COM_port_checker)
   - List all the COM ports connected to the machine
   - _#Processing, #COM-port, #serial_
+
+### Photos / Screenshots
+
+All photos and screenshots are make by I-Tang Chiang, the repo owner.
