@@ -2,6 +2,8 @@
 
 This is a repository for ideas or some tips of working with OOCSI
 
+<br />
+
 ## Ideas
 
 - [OOCSI Chatroom](/oocsi-chatroom/)
@@ -18,6 +20,8 @@ This is a repository for ideas or some tips of working with OOCSI
 - [COM port Checker](/COM_port_checker)
   - List all the COM ports connected to the machine
   - _#Processing, #COM-port, #serial_
+
+<br />
 
 ### Photos / Screenshots
 
